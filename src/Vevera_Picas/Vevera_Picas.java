@@ -5,7 +5,26 @@ import java.text.DecimalFormat;
 
 public class Vevera_Picas {
     public static void lielums () {
-
+    	 DecimalFormat df = new DecimalFormat("#.##");
+    	double cena=0;
+    	String izmers = JOptionPane.showInputDialog("Ievadi picas izmēru diametrā(cm) (20, 30, 50)");
+    	switch(izmers) {
+        case "20":
+     	   cena=4.99;
+     	   JOptionPane.showMessageDialog(null, "Cena ir 4.99.");
+     	   break;
+        case "30":
+     	   cena= 6.99;
+     	   JOptionPane.showMessageDialog(null, "Cena ir 6.99");
+     	   break;
+        case "50":
+        	cena = 11.99;
+        	 JOptionPane.showMessageDialog(null, "Cena ir 11.99");
+        	 break;
+        default:
+        	cena=6.99;
+        	JOptionPane.showMessageDialog(null, "Izvēlējies nepareizu izmēru, tapēc izvēlējāmies jums 30 cm picu.");
+       }
     }
 
     public static void piedevas() {
@@ -26,7 +45,6 @@ public class Vevera_Picas {
     	   piegadesCena= 2.50;
     	   JOptionPane.showMessageDialog(null, "Piegades cena ir: " + df.format(piegadesCena));
     	   break;
-       
       }
        }
     
