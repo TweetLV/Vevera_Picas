@@ -4,9 +4,11 @@ import javax.swing.JOptionPane;
 import java.text.DecimalFormat;
 
 public class Vevera_Picas {
+		static double cena;
+		static double Sastavdalas3;
+		static double piegadesCena;
     public static void lielums () {
     	 DecimalFormat df = new DecimalFormat("#.##");
-    	double cena=0;
     	String izmers = JOptionPane.showInputDialog("Ievadi picas izmēru diametrā(cm) (20, 30, 50)");
     	switch(izmers) {
         case "20":
@@ -31,7 +33,6 @@ public class Vevera_Picas {
     public static void piedevas() {
     	int Sastavdalas = 0;
         int Sastavdalas2 =0;
-        int Sastavdalas3;
         String piedevas;
         String GalSastavDala = "Siers";
        piedevas = JOptionPane.showInputDialog("Uz visām picām ir siers. Vai vēlaties vēl sastāvdaļas? Katra sastāvdaļa ir 1.25 EUR. Izvēlies Desa vai peperoni, vai abas piedevas.");
@@ -63,7 +64,6 @@ public class Vevera_Picas {
     public static void piegade() {
     	 DecimalFormat df = new DecimalFormat("#.##");
     	
-        double piegadesCena = 0;
        String attalums = JOptionPane.showInputDialog("Ievadi vai picu savāksiet klātienē vai būs piegāde(0 priekš klātienes, 1 priekš piegādes)");
        switch(attalums) {
        case "0":
@@ -77,10 +77,12 @@ public class Vevera_Picas {
       }
        return;
        }
-    
-
-
-
+    public static void galacena() {
+    	DecimalFormat df = new DecimalFormat("#.##");
+    	double PasutijumaCena;
+    	PasutijumaCena = (double) ((cena)+ (Sastavdalas3 * 1.25) + (piegadesCena));
+    	JOptionPane.showMessageDialog(null, "Picas cena ir "+df.format(PasutijumaCena)+"EUR.");
+    }
 
     public static void main(String[] args) {
         String izvele;
@@ -98,7 +100,7 @@ public class Vevera_Picas {
             piegade();
             break;
         case "4":
-        	 
+        	galacena();	
             break;
         case "0":
             JOptionPane.showMessageDialog(null, "Pasūtijums atcelts!");
